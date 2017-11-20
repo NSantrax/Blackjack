@@ -41,6 +41,7 @@ class Main
   def game_new
     @deck  = Cards.new
     @players.each {|player|  player.bank_100 }
+    p "Новая игра! #{@player.name}, у Вас в банке 100 монет, ставка 10 монет за кон. "
     shuffle
   end
 
@@ -72,10 +73,10 @@ class Main
   end
 
   def calculation21
-    if @player.count == @dealer.count
+    if @player.count>21 && @dealer.count>21
       p "СТЕЙ - ничья "
       p "#{@player.name}, Вы проиграли. У Вас в банке #{@player.bank} "
-      elsif @player.count>=21
+      elsif @player.count>21
         @player.take_bank
         @dealer.add_bank
         p "#{@player.name}, Вы проиграли. У Вас в банке #{@player.bank} "
