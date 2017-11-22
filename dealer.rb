@@ -1,19 +1,19 @@
 
 class Dealer
-	def initialize
-	  @name  = Dealer
+  def initialize
+    @name  = Dealer
     @bank  =  0
     @hand  =  []
     @count  =  0
-	end
+  end
 
-	def hand
+  def hand
     @hand
-	end
+  end
 
-	def hand0
+  def hand0
     @hand  =  []
-	end
+  end
 
   def bank_100
     @bank  =  100
@@ -31,24 +31,24 @@ class Dealer
     @bank
   end
 
-	def name
-	  @name
-	end
+  def name
+    @name
+  end
 
-	def count
-	  @count  =  0
-	  @hand.each do |card|
-	               @count  +=  1  if card =~ /^[A]+/
-	               @count  +=  card.to_i 
+  def count
+    @count  =  0
+    @hand.each do |card|
+	         @count  +=  1  if card =~ /^[A]+/
+	         @count  +=  card.to_i 
                  @count  +=  10  if card =~ /^[JQK]+/
                end
     @count  +=  10  if @count  <  12  &&  @hand.find { |card| card =~ /^[A]+/ }
     @count
-	end
+  end
 
   def much 
     count
-	  raise MUCH,"#{@name}! Вы набрали #{@count} очков - ПЕРЕБОР! Вы проиграли." if @count  >  21
+    raise MUCH,"#{@name}! Вы набрали #{@count} очков - ПЕРЕБОР! Вы проиграли." if @count  >  21
   end
 
   def show
@@ -56,7 +56,7 @@ class Dealer
     p "Dealer hand: * * "
   end
 
-  def showdown
+  def showd@bank  =  0
     count
     print "#{@name}  hand: #{@hand} - #{@count} очков \n "
   end
@@ -64,14 +64,14 @@ end
 
 class Player < Dealer
   def initialize(name)
-  	@name  =  name
-  	@bank  =  0
+    @name  =  name
+    @bank  =  0
     @hand  =  []
     @count  =  0
   end
 
   def show
-  	count
+    count
     print "#{@name}  hand: #{@hand} - #{@count} очков \n "
   end
 end
