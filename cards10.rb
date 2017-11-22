@@ -12,7 +12,7 @@ class Deck
   end
 
   def cards
-  	@cards
+   	@cards
   end
 
   def shuffle
